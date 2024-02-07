@@ -6,7 +6,7 @@ async function fetching() {
     let response;
 }
 button.onclick = async () => {
-    const fetching = await (await fetch("http://217.25.94.100:5000/analitic/allClients")).json();
+    const fetching = await (await fetch("http://217.25.94.100:5000/analitic/getSortedClieent")).json();
     const { year, month, day, week } = getDate();
     const todayJson = JSON.stringify({ year, month, day });
     let todayCount = 0;

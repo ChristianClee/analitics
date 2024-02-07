@@ -23,8 +23,11 @@ class Analitic {
             res.json("").status(400);
         }
     }
-    async getAllClients(req, res) {
+    async getSortedClieent(req, res) {
         this.deleteClient(req);
+        this.getAllClients(req, res);
+    }
+    async getAllClients(req, res) {
         try {
             const data = await User.find({});
             res.json(data).send("ok").status(200);

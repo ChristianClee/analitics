@@ -9,7 +9,7 @@ class Analitic {
   public testServer(req: Request, res: Response) {
     try {
       const ip = req.ip;
-      res.json(ip).status(200)
+      res.json(ip).status(200);
     } catch (e) {
       console.log("error in Analitic.testServer ", e);
     }
@@ -30,8 +30,12 @@ class Analitic {
     }
   }
 
-  public async getAllClients(req: Request, res: Response) {
+  public async getSortedClient(req: Request, res: Response) {
     this.deleteClient(req);
+    this.getAllClients(req, res);
+  }
+
+  public async getAllClients(req: Request, res: Response) {
     try {
       const data = await User.find({});
       res.json(data).send("ok").status(200);
