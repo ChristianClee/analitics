@@ -13,7 +13,9 @@ async function fetching() {
 
 
 button.onclick = async () => {
-  const fetching = await(await fetch("http://217.25.94.100:5000/analitic/getSortedClient")).json();
+  // const domain = process.env.DOMAIN
+  // console.log({domain})
+  const fetching = await(await fetch("http://localhost:5000/analitic/getSortedClient")).json();
 
   const { year, month, day, week } = getDate()
   const todayJson = JSON.stringify({ year, month, day})

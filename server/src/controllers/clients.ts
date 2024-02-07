@@ -31,14 +31,14 @@ class Analitic {
   }
 
   public async getSortedClient(req: Request, res: Response) {
-    this.deleteClient(req);
-    this.getAllClients(req, res);
+    await this.deleteClient(req);
+    await this.getAllClients(req, res);
   }
 
   public async getAllClients(req: Request, res: Response) {
     try {
       const data = await User.find({});
-      res.json(data).send("ok").status(200);
+      res.json(data).status(200);
     } catch (e) {
       console.log("error in Analitic.getAllClients", e);
     }
