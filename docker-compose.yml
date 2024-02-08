@@ -1,6 +1,16 @@
 version: '3'
 
 services: 
+  nginx:
+    image: nginx:latest
+    restart: always
+    ports: 
+      - "80:80"
+    container_name: nginx-front
+    depends_on:
+      - mongo
+    volumes:
+      - ./static:/usr/share/nginx/html
 
   back:
     build: ./server
